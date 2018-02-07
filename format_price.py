@@ -15,9 +15,7 @@ def format_price(price) -> str:
 
     else:
         raise ValueError(
-            'Некорректное значение, ожидалось число, дано: {}'.format(
-                price
-            )
+            'Некорректное значение, ожидалось число, дано: {}'.format(price)
         )
 
 
