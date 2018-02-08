@@ -13,14 +13,17 @@ def format_price(price) -> str:
             format_string = ',.2f'
         return format(price, format_string).replace(',', ' ')
 
-    else:
-        raise ValueError(
-            'Некорректное значение, ожидалось число, дано: {}'.format(price)
-        )
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('Форматирование числа в цену')
     parser.add_argument('--price', '-p', help='Входящая цена', required=True)
     args = parser.parse_args()
+    formated_price = format_price(args.price)
+    if not formated_price:
+        raise ValueError(
+            'Некорректное значение, ожидалось число, дано: {}'.format(
+                args.price
+            )
+        )
     print(format_price(args.price))
